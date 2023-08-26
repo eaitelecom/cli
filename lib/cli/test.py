@@ -139,7 +139,7 @@ class AppMixin(object):
         """
         try:
             returned, app = self.runapp(app_cls, cmd, **kwargs)
-        except raises, e:
+        except raises as e:
             return True
         if trim:
             stdout, stderr = trim(stdout), trim(stderr)
@@ -155,7 +155,7 @@ class AppMixin(object):
         """
         try:
             self.runapp(app_cls, cmd, **kwargs)
-        except Abort, e:
+        except Abort as e:
             self.assertEqual(status, e.status)
             return True
 
